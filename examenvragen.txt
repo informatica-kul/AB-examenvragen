@@ -313,6 +313,10 @@ tussen de berekenbaarheid van een functie en de grootte van zijn
 domein en/of bereik ?
 ########################################################################
 
+Primitief:	p135
+Recursief:	p138
+Gelijkheid:	De cursus gaat hier niet verder op in, als dit gevraagd wordt op het examen dan ga ik ook niet dieper ingaan op de vraag en eet ik mijn examen op. (p139)
+Verband:	Als een functie berekenbaar is bestaat er een turingmachine die bij input s stopt (als en slechts als s tot het domein van de functie behoort voor partiele functies) en f(s) op de outputband heeft staan. Aangezien het domein en bereik dus deelverzamelingen van simga* zijn, zijn deze dus aftelbaar. 
 
 ########################################################################
 Geef informeel de definitie van een {\em lineair begrensde automaat}
@@ -321,7 +325,12 @@ beslisbaar is. Geef de stappen in een bewijs dat $E_{LBA}$ (de
 verzameling van LBA's die de lege taal bepalen) niet beslisbaar is.
 ########################################################################
 
+Definitie:	p115
+A_LBA:		p115
+E_LBA:		p116
 
 ########################################################################
 Bespreek berekenen door middel van samenwerkende eindige automaten.
 ########################################################################
+
+Bespreek het samenwerken van studenten en de POC door middel van een aanklacht wegens minst duidelijke examenvraag in de geschiedenis.
