@@ -205,7 +205,9 @@ van wanneer ze mag toegepast worden en wanneer niet - met argumentie
 natuurlijk.
 ########################################################################
 
-
+Definitie & bewijs:	p121
+Voorbeelden van wel:	E_tm, ES_tm
+Voorbeelden van niet:	A_tm (niet rechtstreeks toch), H_tm, talen van turingmachines met x aantal toestanden.
 
 ########################################################################
 Wat is een orakelmachine. Bespreek de uitspraak: "de verzameling
