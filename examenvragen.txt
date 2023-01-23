@@ -1,0 +1,291 @@
+########################################################################
+Geef een preciese formulering van het pompend lemma voor reguliere
+talen en een bewijs ervan. Geef voorbeelden waarbij je laat zien hoe
+je dat lemma gebruikt om te bewijzen dat een gegeven taal regulier is
+en om te bewijzen dat een gegeven taal niet regulier is.
+########################################################################
+
+formulering en bewijs:	p49
+
+Regulariteit bewijzen: 	Onmogelijk, het pompend lemma bespreekt een eigenschap die alle reguliere talen hebben, geen criterium voor het zijn van een reguliere taal.
+			(Het pompend lemma geldt dus voor elke reguliere taal, maar er zijn ook talen die niet regulier zijn die gepompt kunnen worden op deze manier.)
+
+Niet Regulier bewijzen:	0^n 1^n
+ 
+
+
+########################################################################
+Geef een preciese formulering van het pompend lemma voor context-vrije
+talen en een bewijs ervan. Geef voorbeelden waarbij je laat zien hoe
+je dat lemma gebruikt om te bewijzen dat een gegeven taal context-vrij
+is en om te bewijzen dat een gegeven taal niet context-vrij is.
+########################################################################
+
+Formulering en bewijs:		p80-81
+
+Contextvrij bewijzen:		Onmogelijk, zie pompend lemma voor reguliere talen
+
+Niet Contextvrij bewijzen:	a^n b^n c^n
+
+########################################################################
+Beschrijf in detail de transformatie van een niet-deterministische
+eindige toestandsautomaat naar een equivalente deterministische
+eindige toestandsautomaat. Beschrijf de notie van "equivalentie van
+automaten" in deze context en argumenteer waarom de transformatie
+"correct" is. Bespreek de uitspraak "deze transformatie is [niet]
+deterministisch". (kies zelf of je die "niet" wil houden of niet)
+########################################################################
+
+Transformatie:		p27-28
+
+Equivalentie:		2 Automaten zijn equivalent asa ze dezelfde taal bepalen, in deze context is dat relevant omdat we uiteraard willen dat de NFA na transformatie naar een DFA nog steeds dezelfde taal bepaalt, anders was het hele process redelijk zinloos
+
+Bewijs correctheid:	p28
+
+Determinisme:		Nergens in het bewijs wordt een keuze gemaakt, of iets willekeurig gekozen (toch niks van belang), dus het is deterministisch.
+
+########################################################################
+Beschrijf in detail de transformatie van een deterministische eindige
+toestandsautomaat naar een equivalente deterministische eindige
+toestandsautomaat met een minimaal aantal toestanden. Beschrijf de
+notie van "equivalentie van automaten" in deze context en argumenteer
+waarom er geen kleinere equivalente deterministische eindige
+toestandsautomaat bestaat. Kan een kleinere equivalente
+niet-deterministische eindige toestandsautomaat bestaan ?
+########################################################################
+
+Defintie van DFA_min:	p33
+
+f-gelijkheid:		p32-33
+
+Algoritme voor Q':	Initializeer S := Q^2. Schrap eerst alle (q_1, q_2) \in S waarvoor geldt dat juist 1 in F zit. Herhaal dan de volgende stap tot een fixpunt bereikt wordt: Ga over elk paar (q_1, q_2) \in S, en over elke symbool sigma van het gegeven alfabet, en als (delta(q_1, sigma), delta(q_2, sigma)) niet in S zit, verwijder dan ook (q_1, q_2). Stel nu een graaf op met als knopen de toestanden van Q, en als bogen de elementen van S. Deze graaf is dan opgedeeld in componenten, waarbij per component de toestanden f-gelijk zijn. Dit vormt dus onze partitie van Q in f-gelijke toestanden. (technisch gezien een gerichte graaf, maar uit de symmetrie van f-gelijkheid volgt dat (p,q) \in A asa (q,p) \in a) 
+
+Correctheid:		p34 (mogelijk ook een antwoord op de vage vraag "equivalentie binnen deze context")
+Equivalentie automaten:	2 automaten zijn equivalent asa ze dezelfde taal bepalen (mogelijk vist hij naar het feit dat er voor elke taal oneindig veel isomorfe DFA's bestaan, maar dat de minimale DFA van een taal op isomorfisme na uniek bepaald is?)
+
+Geen kleinere DFA:	p37
+
+Kleinere NFA:		In meeste gevallen kan dat, eender welke DFA is ook een NFA (maar niet omgekeerd, uiteraard) en kan dus getransformeerd worden naar een GNFA (ook een NFA) met 2 toestanden en 1 boog met daarop de corresponderende reguliere expressie.
+
+########################################################################
+Bewijs dat een eindige toestandsautomaat altijd een
+taal herkent die door een reguliere expressie wordt beschreven. Doe
+dat door een eindige toestandsautomaat te transformeren naar een
+gegeneraliseerde niet-deterministische eindige toestandsautomaat met
+slechts 2 toestanden.
+########################################################################
+
+Algoritme & Bewijzen:	p22-26
+
+########################################################################
+Bespreek unie, doorsnede, complement, concatenatie van reguliere
+talen, van contextvrije talen en van niet-contextvrije talen: zijn die
+operaties inwendig ? Geef voldoende detail in je argumentatie,
+eventueel voorbeelden indien nuttig.
+########################################################################
+
+Reguliere talen: allemaal GESLOTEN
+	Unie: Construeer NFA met nieuwe starttoestand die een epsilon-boog heeft naar de 2 oude starttoestanden
+	Doorsnede: Construeer een nieuwe NFA met Q' := Q_1 x Q_2, q'_s = (q_1s, q_2s), en definieer de transitiefunctie als delta((q_1, q_2),s) = (delta_1(q_1, s), delta_2(q_2, s)), rest is analoog.
+	Complement: F' = F^c
+	Concatenatie: Voeg een epsilon-boog van elke eindtoestand van NFA_1 naar q_2s toe.
+
+Context-Vrije talen:
+	Unie: GESLOTEN Neem CFG_1 en CFG_2, voeg de regels en niet-eindsymbolen samen (met mogelijkse hernoeming als er overlap was), en voeg S -> S_1, S-> S_2 toe.
+	Doorsnede: NIET GESLOTEN Doorsnede van {a^n b^n c^m | n,m >=0} en {a^n b^m c^m | n,m >= 0} is {a^n b^n c^n | n>=0} wat met pompend lemma kan bewezen worden niet context-vrij te zijn
+	Complement: NIET GESLOTEN A doorsnede B = complement ((complement A) unie (complement B)), aangezien doorsnede niet gesloten is volgt uit deze gelijkheid dat complement dat ook niet hoeft te zijn.
+	Concatenatie: GESLOTEN Analoog aan unie, alleen voegen we S -> S_1 S_2 toe in plaats van de afzonderlijke regels.	
+
+Niet-Contextvrij talen: no clue waar hij achter vraagt maybe van herkenbare en beslisbare talen?
+	Herkenbare:
+		Unie: laat beide TM's tegelijk runnen, als een van beide accept, accpet.
+		Doorsnede: laat beide TM's tegelijk runnen, als beide in accept komen, accept.
+		Complement: moest dit waar zijn zou elke herkenbare taal beslisbaar zijn, en dan zou heel de cursus instorten en de wereld in brand vliegen
+		Concatenatie: de inputstring is eindig, dus ga over de string en splits die in 2 stukken van lengte 1 en (n-1), 2 en (n-2) and so on en voer er 1 stap van de TM's op uit. Loop daarna opnieuw over elke splitsing en voer 2 stappen uit. Als beide TM's accepteren voor een gegeven splitsing, accept.
+
+	Beslisbare: Analoog aan herkenbare, alleen is complement triviaal door accept en reject toestand te swappen.
+
+########################################################################
+Definieer de Chomsky Normaal Vorm voor CFGs. Geef de opeenvolgende
+stappen in het algoritme om een CFG naar een equivalente Chomsky NF te
+transformeren. Beschrijf de notie van "equivalentie van grammaticas" in
+deze context en argumenteer waarom de transformatie "correct"
+is. Waarvoor is de Chomsky Normaal Vorm nuttig ?
+########################################################################
+
+
+Definitie:	p68
+
+Algoritme:	https://en.wikipedia.org/wiki/Chomsky_normal_form in combinatie met stap 2 p68 (voor de DEL stap)
+
+	Stap 1/START:	Vervang alle voorkomens van S door het symbool X, en voeg de regel S -> X toe.
+			Equivalentie: Neem een oude parsing tree. Het is duidelijk dat het symbool S een andere naam geven in deze boom de parsing niet verandert. Aangezien S -> X enkel het oude startsymbool genereert komt dit dus neer op een stap bovenaan de parsing in te voeren die van S naar X gaat, wat eigenlijk equivalent is met S hernoemen naar X (aangezien er geen enkele andere regel met S links bestaat).
+
+	Stap 2/TERM:	Om regels van de vorm A -> X_1 X_2 ... a ... X_n, waarbij het niet-eindsymbool a niet het enige symbool is, te verwijderen, introduceer een N_a voor elk eind-symbool, met regel N_a -> a, en vervang dan de voorkomens van a in de originele regel.
+			Equivalentie:	Elke parsing die vroeger A -> X_1 X_2 ... a ... X_n gebruikte kan nu A -> X_1 X_2 ... N_a ... X_n opvolgen met N_a -> a om exact dezelfde parsing te bekomen. Dat er geen nieuwe strings gevormd kunnen worden is evident.
+
+			(note: A -> abc voldoet hier ook aan, enkel regels die geen enkel eindsymbool bevatten, of exact 1 en geen enkel niet-eindsymbool, worden genegeerd door deze stap)
+			na uitvoer bevat onze grammatica dus enkel nog regels met aan de rechterkant oftewel alleen niet-eindsymbolen, of 1 eindsymbool. Dat de taal onveranderd blijft is duidelijk.
+
+	Stap 3/BIN:	Vervang elke regel van de vorm A -> X_1 X_2 ... X_n, met n > 2, door de regels A -> X_1 A_1, A_1 -> X_2 A_2, ..., A_(n-2) -> X_(n-1) X_n.
+			Onze grammatica bevat nu enkel nog regels met rechts maximaal 2 niet-eindsymbolen, of 1 eindsymbool. 
+			Equivalentie:	Elke parsing die A -> X_1 X_2 ... X_n bevatte kan nog steeds gevormd worden door A -> X_1 A_1, A_1 -> X_2 A_2, ... te combineren. Dat dit geen nieuwe strings toelaat is evident (lees: ik weet niet hoe dit formeel uit te drukken :p) 
+
+	Stap 4/DEL:	Herhaal het volgende process tot een fixpunt berekt wordt: Voor elke combinatie van een regel A -> epsilon en een regel B -> alfa A beta (waarbij alfa en beta eender wat kunnen zijn, van willkeurige lengte), voeg de regel B -> alfa beta toe. Eens het fixpunt bereikt is, verwijder elke regel A -> epsilon met A != S.
+			Onze grammatica bevat nu enkel nog regels met rechts maximaal 2 niet-eindsymbolen of 1 eindsymbool, en epsilon (een niet-eindsymbool!) komt enkel potentieel voor in S -> epsilon
+			Equivalentie: Voor elke parsing die A -> epsilon gebruikte in een regel B -> alfa A beta kan nu de regel B' -> alfa beta gebruikt worden.
+
+			(enkele verklaringen: 	epsilon is geen eindsymbool, maar S -> epsilon moet wel in onze grammatica zitten als de CFG de lege string afleidt. We willen dus epsilons zo veel mogelijk "propageren", om te zien of S -> epsilon mogelijk is of niet.
+						de alfa en beta in B -> alfa A beta zijn geen niet-eindsymbolen, maar stellen "eender wat" voor. Een lijst van enkel mogelijk invullingen van B en bijhorende alfa en beta:	B -> a A b (alfa = a, beta = b), B -> C A C (alfa = C, beta = C), B -> C a A (alfa = C a, beta = epsilon), B -> A A B A (deze regel wordt op verschillende manieren verwerkt, waarbij de regel B -> alfa beta voor elke case wordt toegevoegd. bvb (alfa = AAB, beta = epsilon), (alfa = A, beta = BA), (alfa = epsilon, beta = ABA).
+						
+	Stap 5/UNIT:	voor elke regel van de vorm A -> B met A en B niet-eindsymbolen: Voor elke regel van de vorm B -> gamma, voeg de regel A -> gamma toe. Verwijder hierna A -> B.
+			Onze grammatica bevat nu enkel regels met rechts exact 2 niet-eindsymbolen, exact 1 eindsymbool, of S -> epsilon. Done :D
+			Equivalentie:	Elke parsing die A -> B en B -> gamma combineerde kan nu rechtstreeks A -> gamma gebruiken.
+
+
+Technisch gezien zijn mijn "bewijzen" van equivalentie bewarend zijn maar in 1 richting en bewijs ik enkel dat de taal gegenereerd door de getransformeede CFG altijd groter of gelijk is, maar buh
+
+########################################################################
+Leg uit wat een pushdown automaat is en hoe die werkt. Laat de
+constructie zien (in het algemeen) van een pushdown automaat die een
+gegeven contextvrije taal aanvaardt. Argumenteer de correctheid.
+########################################################################
+
+Definitie:	p71-72
+CFG -> PDA:	75-77
+Correctheid:	De PDA begint met een stackmarker en S op de stack te plaatsen. Hierne zijn er veel mogelijke bogen, waarbij een deel van de bogen, per de constructie, overeenkomt met een regel van de CFG toepassen op het bovenste element van de stack (i.e. een leftmost parsing), en een ander deel van de bogen het eeerste symbool van de inputstring consumeert asa dat vanboven op de stack staat. Een string wordt dus enkel geaccepteerd door de PDA asa het zijn invoerstring in dezelfde volgorde op de stack kan krijgen (niet per se in 1 keer, de string mag stapsgewijs geconsumeerd worden) asa het de symbolen op de stack kan omvormen tot de invoerstring asa de regels van de gegeven CFG de string kunnen vormen asa de CFG aanvaardt de string.
+
+########################################################################
+Leg uit wat een pushdown automaat is en hoe die werkt. Laat de
+constructie zien (in het algemeen) van een CFG die dezelfde taal
+genereert als een gegeven pushdown automaat. Argumenteer de correctheid.
+########################################################################
+
+Definitie:	P71-72
+PDA -> CFG:	p78
+Correctheid:	Bewijs wordt dit jaar niet gezien >:( 
+		Mogelijks gelijkaardig argument over parsings mogelijk als hierboven?
+
+########################################################################
+Geef de definities van "een taal wordt beslist door een Turing
+machine" en van "een taal wordt herkend door een Turing
+machine". Bewijs dat er een niet-beslisbare taal bestaat, gebaseerd op
+een cardinaliteitsargument.
+########################################################################
+
+Definities:	p93-94
+Bewijs:		94
+
+########################################################################
+Definieer de enumerator machine. Bewijs dat elke herkenbare taal kan
+ge-enumereerd worden en dat elke taal die door een enumerator wordt
+ge-enumereerd ook herkenbaar is. Kan elke beslisbare taal
+ge-enumereerd worden ? Bespreek in deze context de uitspraak "de
+verzameling van Turing machines is een herkenbare taal".
+########################################################################
+
+Definitie:	p107
+Bewijs:		p108
+Beslisbare:	Uiteraard, een beslisbare taal is herkenbaar -> enumereerbaar
+Turing Codes:	Cursus zegt zonder redenering of bewijs dat het beslisbaar is of een string over het coderingsalfabet (in een degelijke maar niet unreasonable codering) een TM voorstelt.
+		Ik zou misschien vermelden dat dit betekent dat de verzameling herkenbaar is, en dus enumereerbaar? 
+
+########################################################################
+Bewijs in detail dat A_TM niet beslisbaar is - steun daarbij niet op
+de stelling van Rice. Zou het helpen als het toegelaten was op de
+stelling van Rice te steunen. Is A_TM herkenbaar ?
+########################################################################
+
+Bewijs:	p105
+Rice?:	De stelling van Rice valt te bewijzen zonder "A_tm is onbeslisbaar" als gegeven te hebben (dit wordt in de cursus gedaan, en in dit geval zou het komende bewijs een cirkelredenering zijn). Neem ES_TM (dit is A_TM met s=epsilon vast gekozen). Dit is een niet-triviale taalinvariante eigenschap, dus uit rice volgt dat ES_TM niet beslisbaar is. Moest A_TM beslisbaar zijn voor eender welke M en s, dan dus ook voor eender welke M en epsilon, maar dit is niet het geval => A_tm is niet beslisbaar
+
+########################################################################
+Formuleer en bewijs in detail de stelling van Rice. Geef voorbeelden
+van wanneer ze mag toegepast worden en wanneer niet - met argumentie
+natuurlijk.
+########################################################################
+
+
+
+########################################################################
+Wat is een orakelmachine. Bespreek de uitspraak: "de verzameling
+orakelmachines (voor een gegeven orakel) is strikt krachtiger dan
+de verzameling van Turing machines". Leg hierbij ook uit wat je
+bedoelt met "krachtiger". Kan een verzameling orakelmachines (voor
+bepaald gegeven orakel) alle talen beslissen ?
+########################################################################
+
+
+
+########################################################################
+Formuleer en bespreek de stellingen van Church-Rosser. Geef daarbij
+hun belang i.v.m. het het baseren van een programmeertaal op
+lambda-calculus. Geef de relatie met de programmeertaal Haskell.
+########################################################################
+
+
+
+########################################################################
+Bespreek de Turing-volledigheid van Hornclauselogica. In dezelfde
+context: bespreek "subsets" van Hornclauselogica die al dan niet
+Turing-volledig zijn. Geef de relatie met (zuivere) Prolog.
+########################################################################
+
+########################################################################
+Bespreek (eventueel bewijs) de uitspraak: niet elke context-vrije taal
+is deterministisch. Leg verband met ambiguiteit.
+########################################################################
+
+########################################################################
+Leg het correspondentieprobleem van Post uit. Laat zien dat welk
+aspect ervan niet beslisbaar is. Is het herkenbaar ?
+########################################################################
+
+########################################################################
+Bewijs in detail dat elke contex-vrije taal herkenbaar is.
+########################################################################
+
+########################################################################
+Bewijs in detail dat {\bf $REGULAR_{TM}$} niet beslisbaar is. Is
+diezelfde taal herkenbaar ? Is {\bf $\overline{REGULAR_{TM}}$}
+########################################################################
+
+########################################################################
+Geef het bewijs van de stelling {\bf $E_{TM}$ is niet beslisbaar}.
+Bespreek daarna de uitspraken {\bf $E_{TM}$ is herkenbaar} en
+{\bf $E_{TM}$ is co-herkenbaar}. (de $E$ staat voor $Empty$)
+Ken je ook alternatieve bewijzen ? Hoe zit het met $E_{CFG}$ ?
+########################################################################
+
+
+########################################################################
+Geef het bewijs van de stelling {\bf $EQ_{TM}$ is niet beslisbaar}.
+Kan (een variante van) de stelling van Rice helpen om dit te bewijzen ?
+########################################################################
+
+########################################################################
+Bespreek de twee noties van reduceerbaarheid ($A \leq_m B$ en $A
+\leq_T B$), hun verband en op welke manier die noties kunnen gebruikt
+worden om aan te tonen dat een taal (on)beslisbaar/herkenbaar is.
+########################################################################
+
+########################################################################
+Geef de opbouw van de primitief recusieve functies, en die van de
+recursieve functies. Argumenteer waarom al die functies met een
+Turingmachine kunnen berekend worden, en omgekeerd. Is er een verband
+tussen de berekenbaarheid van een functie en de grootte van zijn
+domein en/of bereik ?
+########################################################################
+
+
+########################################################################
+Geef informeel de definitie van een {\em lineair begrensde automaat}
+(LBA). Argumenteer dat het aanvaardingsprobleem voor LBA's ($A_{LBA}$)
+beslisbaar is. Geef de stappen in een bewijs dat $E_{LBA}$ (de
+verzameling van LBA's die de lege taal bepalen) niet beslisbaar is.
+########################################################################
+
+
+########################################################################
+Bespreek berekenen door middel van samenwerkende eindige automaten.
+########################################################################
