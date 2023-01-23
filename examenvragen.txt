@@ -263,6 +263,8 @@ Klasse:	Neem het voorbeeld waarbij de input van een turing machine wordt gesimul
 Bewijs in detail dat elke contex-vrije taal herkenbaar is.
 ########################################################################
 
+Bewijs:	Een CFL is beslisbaar <=> er bestaat een TM die beslist of een string in die CFL zit <=> er bestaat een CFG die bepaalt of een string in de CFL zit <=> A_CFG is beslisbaar (voor bewijs: p111)
+
 ########################################################################
 Bewijs in detail dat {\bf $REGULAR_{TM}$} niet beslisbaar is. Is
 diezelfde taal herkenbaar ? Is {\bf $\overline{REGULAR_{TM}}$}
