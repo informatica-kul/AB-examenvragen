@@ -256,6 +256,9 @@ Leg het correspondentieprobleem van Post uit. Laat zien dat welk
 aspect ervan niet beslisbaar is. Is het herkenbaar ?
 ########################################################################
 
+Uitleg:	p123-124
+Klasse:	Neem het voorbeeld waarbij de input van een turing machine wordt gesimuleerd adhv een post-correspondence probleem. Dit is algemeen mogelijk, maar viel buiten het bestek van deze cursus, dus we nemen aan dat dit mogelijk is. Dan is, gegeven de simulatie van TM M met string s, het vinden van een correspondence equivalent met A_tm, en dus onbeslisbaar maar herkenbaar.
+
 ########################################################################
 Bewijs in detail dat elke contex-vrije taal herkenbaar is.
 ########################################################################
