@@ -217,7 +217,12 @@ bedoelt met "krachtiger". Kan een verzameling orakelmachines (voor
 bepaald gegeven orakel) alle talen beslissen ?
 ########################################################################
 
+Definitie:	p130
+Krachtiger:	p130, elk orakelmachine voor een gegeven orakel is at worst gewoon een turing machine en dus even krachtig, als het bijvoorbeeld nooit iets vraagt aan het orakel. Een orakelmachine kan dan weer wel talen beslissen die door dezelfde machine zonder orakel niet beslist kon worden, bijvoorbeeld de taal zelf als die niet beslisbaar is (A_tm is niet beslisbaar, O^A_tm kan deze taal duidelijk triviaal beslissen.)
+Kracht:		Met de uitspraak dat een klasse machines krachtiger is dan een andere wordt bedoeld dat deze klasse meer talen kan bepalen, wat ook overeenkomt met het idee dat 1 van de 2 klasses machines elke machine uit de andere klasse kan simuleren, maar niet omgekeerde.
+		(Zo kan elke NFA een Reguliere Expressie simuleren en omgekeerd dus zijn ze even krachtig, maar een NFA kan geen TM simuleren, terwijl dat omgekeerd wel gaat. Het is duidelijk dat elke TM gesimuleerd kan worden door een orakelmachine, maar het omgekeerde geldt uiteraard niet).
 
+Supremum?:	p131 onderaan, het aantal talen is overaftelbaar, het aantal orakelmachines met een gegeven orakel is aftelbaar en die bepalen elk juist 1 taal, dus moet er een taal zijn die niet bepaald wordt door een orakelmachine met gegeven orakel.
 
 ########################################################################
 Formuleer en bespreek de stellingen van Church-Rosser. Geef daarbij
@@ -225,6 +230,8 @@ hun belang i.v.m. het het baseren van een programmeertaal op
 lambda-calculus. Geef de relatie met de programmeertaal Haskell.
 ########################################################################
 
+Definitie:	p166-167
+Belang:		
 
 
 ########################################################################
