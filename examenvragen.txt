@@ -272,6 +272,7 @@ diezelfde taal herkenbaar ? Is {\bf $\overline{REGULAR_{TM}}$}
 
 Bewijs:		p114
 Herkenbaar:	Het voorgaande bewijs komt overeen met aantonen dat A_tm <=_m REGULAR_tm, waaruit volgt dat hetzelfde geldt voor de complementen. A_tm complement is niet herkenbaar dus REGULAR_TM complement kan dat ook niet zijn. 
+co-herkenbaar:	het bewijs kan aangepast worden voor complement regular_tm (volgens de cursus, niet uitgewerkt), en dan volgt uit dezelfde redenering dat regular_tm niet herkenbaar is.
 
 ########################################################################
 Geef het bewijs van de stelling {\bf $E_{TM}$ is niet beslisbaar}.
@@ -280,7 +281,10 @@ Bespreek daarna de uitspraken {\bf $E_{TM}$ is herkenbaar} en
 Ken je ook alternatieve bewijzen ? Hoe zit het met $E_{CFG}$ ?
 ########################################################################
 
-
+Bewijs:		p113
+Herkenbaar:	Het is co-herkenbaar, dus we stellen een herkenner voor E complement op: Voer 1 stap uit op de eerste string over het alfabet, 2 stappen over de eerste 2 strings, etc. Wanneer een string geaccepteerd wordt accepteren we want de TM bepaalt een string <=> is niet leeg. In combinatie met de niet-beslisbaarheid volgt dat het niet herkenbaar is.
+Alternatief:	Rice!!!!!!!
+E_CFG:		Zet de CFG om naar CNF.Indien S -> epsilon een regel is, reject onmiddelijk. Pas dan de constructie van het boek toe (p111) (deze aanpassing is nodig want epsilon is geen eindsymbool, Denecker is gewoon een stouterik die liegt.)
 
 ########################################################################
 Geef het bewijs van de stelling {\bf $EQ_{TM}$ is niet beslisbaar}.
