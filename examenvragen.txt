@@ -291,11 +291,19 @@ Geef het bewijs van de stelling {\bf $EQ_{TM}$ is niet beslisbaar}.
 Kan (een variante van) de stelling van Rice helpen om dit te bewijzen ?
 ########################################################################
 
+Bewijs:	p114
+Rice:	niet voor EQ_TM zelf, om te bewijzen dat E_TM niet beslisbaar is kan dit helpen, dan moet dit niet aangenomen worden :)
+
 ########################################################################
 Bespreek de twee noties van reduceerbaarheid ($A \leq_m B$ en $A
 \leq_T B$), hun verband en op welke manier die noties kunnen gebruikt
 worden om aan te tonen dat een taal (on)beslisbaar/herkenbaar is.
 ########################################################################
+
+Many-to-one:	p126
+Turing:		p131
+Verband:	Many-to-one reduceerbaarheid impliceert turingreduceerbaarheid. We nemen aan dat A many-to-one reduceerbaar is naar B, dus er bestaat een f die aan die voorwaarden voldoet. Nu willen we aantonen dat A besloten kan worden met een orakel voor B. het antwoord van onze beslisser is simpelweg het antwoord van het orakel voor B op querry f(s). f zet namelijk een string voor A om naar een string voor B, en het orake beslist strings voor B.
+Beslisbaarheid:	zie opnieuw p126 en p131.
 
 ########################################################################
 Geef de opbouw van de primitief recusieve functies, en die van de
