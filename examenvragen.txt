@@ -270,12 +270,16 @@ Bewijs in detail dat {\bf $REGULAR_{TM}$} niet beslisbaar is. Is
 diezelfde taal herkenbaar ? Is {\bf $\overline{REGULAR_{TM}}$}
 ########################################################################
 
+Bewijs:		p114
+Herkenbaar:	Het voorgaande bewijs komt overeen met aantonen dat A_tm <=_m REGULAR_tm, waaruit volgt dat hetzelfde geldt voor de complementen. A_tm complement is niet herkenbaar dus REGULAR_TM complement kan dat ook niet zijn. 
+
 ########################################################################
 Geef het bewijs van de stelling {\bf $E_{TM}$ is niet beslisbaar}.
 Bespreek daarna de uitspraken {\bf $E_{TM}$ is herkenbaar} en
 {\bf $E_{TM}$ is co-herkenbaar}. (de $E$ staat voor $Empty$)
 Ken je ook alternatieve bewijzen ? Hoe zit het met $E_{CFG}$ ?
 ########################################################################
+
 
 
 ########################################################################
