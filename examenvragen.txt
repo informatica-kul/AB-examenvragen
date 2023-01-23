@@ -231,7 +231,8 @@ lambda-calculus. Geef de relatie met de programmeertaal Haskell.
 ########################################################################
 
 Definitie:	p166-167
-Belang:		
+Belang:		p171?
+Haskell:	Haskell is een lazy-evaluated programmeertalen, het maakt dus gebruik van de "call-by-need" strategie die overeenkomt met de normaalorde, CR2 is dus een zeer belangrijk resultaat hiervoor.
 
 
 ########################################################################
@@ -240,10 +241,15 @@ context: bespreek "subsets" van Hornclauselogica die al dan niet
 Turing-volledig zijn. Geef de relatie met (zuivere) Prolog.
 ########################################################################
 
+Jesse what the fuck are you talking about??
+Geen vermelding in de cursus dus hij mag copen en seethen
+
 ########################################################################
 Bespreek (eventueel bewijs) de uitspraak: niet elke context-vrije taal
 is deterministisch. Leg verband met ambiguiteit.
 ########################################################################
+
+Bewijs en verband:	p84
 
 ########################################################################
 Leg het correspondentieprobleem van Post uit. Laat zien dat welk
